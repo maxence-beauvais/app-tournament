@@ -43,7 +43,7 @@ Ensure you have [Java (JDK 21 or higher recommended)](https://www.oracle.com/jav
 2. Navigate to the project folder:
 
    ```bash
-   cd tournament-bracket-engine
+   cd app-tournament
    ```
 
 3. Compile the Java files:
