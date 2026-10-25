@@ -37,7 +37,7 @@ Ensure you have [Java (JDK 21 or higher recommended)](https://www.oracle.com/jav
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/your-username/tournament-bracket-engine.git
+   git clone https://github.com/maxence-beauvais/tournament-bracket-engine.git
    ```
 
 2. Navigate to the project folder:
