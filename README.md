@@ -1,34 +1,40 @@
-# Tournament Bracket Engine (Java CLI)
+# main.java.Tournament Bracket Engine (Java CLI)
 
 A single-elimination tournament management engine, developed in Java as a Command Line Interface (CLI) application.
 
-This project allows you to create a tournament, dynamically register teams via the console, and simulate the progression of a tournament bracket until a champion is crowned. It includes advanced handling of edge cases, such as an odd number of participants.
+This project allows you to create a tournament, dynamically register teams via the console, arbitrate matches manually, and track the progression of a tournament bracket until a champion is crowned. It includes advanced handling of edge cases, robust user input validation, and automatic results export.
 
-## Current Features
+## Features
 
-* **Interactive CLI Menu:** Fluid console interface to create a tournament, set the cash prize, and register teams on the fly.
+* **Interactive CLI Menu:** Fluid console interface to create a tournament, set the cash prize, and register teams (supporting multi-word team names).
 
 * **Automated Matchmaking:** Random shuffling of teams during the first round to ensure a fair draw.
 
-* **Bye Management:** If the number of teams is odd, the algorithm automatically generates a "Bye". The team without an opponent automatically qualifies for the next round (automatic 13-0 victory).
+* **Bye Management:** If the number of teams is odd, the algorithm automatically generates a "Bye". The team without an opponent automatically qualifies for the next round with a forfeit score (13-0).
 
-* **Score Simulation:** Random generation of realistic scores (inspired by the Counter-Strike 2 MR12 format, up to 13), excluding draws.
+* **Manual Score Arbitration:** Interactive score entry for each match (CS2 MR12 format inspired, up to 13 points), with strict enforcement against draws.
 
-* **Complete History:** In-memory saving of all rounds and matches played, with a summary display during the final.
+* **Robust Input Validation:** Exception handling (`try-catch` with buffer flushing) preventing application crashes when users input invalid data types or attempt to start tournaments with fewer than 2 teams.
+
+* **File Export:** Automatic saving of the complete tournament history and final winner to a `tournament_result.txt` file upon tournament completion.
+
+* **Complete History:** In-memory tracking of all rounds and matches played, with a full summary displayed in the terminal.
+
+* **Unit Testing:** Comprehensive test coverage for all core domain models (`main.java.Player`, `main.java.Team`, `main.java.Match`, `main.java.Tournament`) using JUnit 5.
 
 ## Object-Oriented Architecture
 
 The project is built around solid OOP principles, ensuring encapsulation and separation of concerns:
 
-* `Tournament`: The main controller. It manages the lists of active teams, match history, and the elimination logic loop.
+* `main.java.Tournament`: The main controller. It manages the list of active teams, match history, score entry routines, and export operations.
 
-* `Team`: Represents a team, containing a list of players and managing its own maximum capacity.
+* `main.java.Team`: Represents a team, managing its players list and capacity limits.
 
-* `Player`: The core entity representing a participant.
+* `main.java.Player`: Represents individual team members.
 
-* `Match`: Handles the clash between two `Team` instances, stores scores, and exposes logical methods like `getWinner()` and `getLooser()`.
+* `main.java.Match`: Handles the clash between two `main.java.Team` instances, stores scores, and exposes logical methods like `getWinner()` and `getLooser()`.
 
-* `Main`: The entry point of the program, handling user inputs via `Scanner`.
+* `main.java.Main`: The CLI entry point, driving user navigation through interactive menus.
 
 ## How to run the project
 
@@ -55,14 +61,23 @@ Ensure you have [Java (JDK 21 or higher recommended)](https://www.oracle.com/jav
 4. Run the application:
 
    ```bash
-   java Main
+   java main.java.Main
    ```
+
+## Running Unit Tests
+
+To run the test suite with JUnit 5 (if using Maven or Gradle):
+
+* **Maven:** `mvn test`
+* **Gradle:** `./gradlew test`
 
 ## Future Improvements (Roadmap)
 
-* [ ] Fix the Scanner buffer to allow input of multi-word team names (with spaces).
-* [ ] Manual score entry by an administrator (replacing random simulation).
-* [ ] Add a local database (SQLite) to save tournaments between sessions.
+* [x] Fix the Scanner buffer to allow input of multi-word team names (with spaces).
+* [x] Manual score entry by an administrator (replacing random simulation).
+* [x] Export results to a text file.
+* [x] Unit test suite with JUnit 5.
+* [ ] Add a local database (SQLite) to persist tournament sessions.
 * [ ] Display the tournament bracket as an ASCII chart in the console.
 
-*Project developed as part of an in-depth learning of Java architecture and data structure algorithms.*
+*Project developed as part of an in-depth learning of Java architecture, data structures, and software engineering best practices.*

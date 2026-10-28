@@ -1,0 +1,11 @@
+-classpath 'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\build\\classes\\java\\main;C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\build\\resources\\main'
+-quiet 
+-d 'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\build\\docs\\javadoc'
+-windowtitle 'tournament-bracket-engine 1.0.0 API'
+-doctitle 'tournament-bracket-engine 1.0.0 API'
+-notimestamp 
+'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\src\\main\\java\\Main.java'
+'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\src\\main\\java\\Match.java'
+'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\src\\main\\java\\Player.java'
+'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\src\\main\\java\\Team.java'
+'C:\\Users\\Maxence\\Desktop\\Tous les test\\app tournoi\\app tournois\\src\\main\\java\\Tournament.java'
